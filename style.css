@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.game-screen {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.game-screen.active {
+    display: flex;
+}
+
+.play-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.play-section img {
+    margin-left: -50px;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.play-section button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 3rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.play-section button:hover {
+    background-color: #cc0404;
+}
+
+.wrapper {
+    margin-top: 2rem;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background: #f9f9f9;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 80vh;
+    width: 80vw;
+    border: 0.125rem solid #333;
+    background: #fff;
+    position: relative;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.track {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: #e0e0e0;
+    overflow: hidden;
+}
+
+.track1,
+.track2 {
+    border-right: 0.125rem solid #333;
+}
+
+.track3 {
+    border-right: none;
+}
+
+#basket-img-1,
+#basket-img-2,
+#basket-img-3 {
+    margin-top: -30px;
+    height: 8vw;
+    width: auto;
+}
+
+.basket {
+    position: absolute;
+    bottom: 0.625rem;
+}
+
+.basket-1,
+.basket-3 {
+    display: none;
+}
+
+.life {
+    display: inline-block;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    background: red;
+    margin: 0 0.5rem;
+}
+
+.button-section {
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+    margin-top: 1.25rem;
+}
+
+.button-section button {
+    margin: 0 0.625rem;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-section button:hover {
+    background-color: #0056b3;
+}
+
+.balls {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.ball {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.result-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    width: 100vw;
+}
+
+.lives {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+.game-over {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.game-over button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.redirect-box {
+    position: fixed;
+    bottom: 1rem;
+    right: 2rem;
+    z-index: 9999;
+    transition: all 300ms ease-in-out;
+}
+
+#hacker-img {
+    height: 50px;
+    width: 50px;
+}
+
+.redirect-box:hover {
+    transform: scale(1.1);
+}
+
+.redirect {
+    all: unset;
+    position: relative;
+}
+
+.tooltip {
+    background-color: rgba(241, 252, 95, 0.712);
+    padding: 0.5rem;
+    position: absolute;
+    top: -7rem;
+    display: none;
+    right: 2px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.redirect:hover>.tooltip {
+    transition: all 300ms ease-in-out;
+    display: block;
+}
+
+@media (max-width: 520px) {
+    .container {
+        width: 90vw;
+        height: 70vh;
+    }
+
+    #basket-img-1,
+    #basket-img-2,
+    #basket-img-3 {
+        margin-left: -5px;
+        height: 10vw;
+    }
+
+    .basket {
+        width: 15vw;
+    }
+
+    .life {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .ball {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    #hacker-img {
+        height: 35px;
+        width: 35px;
+    }
+    .redirect-box {
+        position: fixed;
+        bottom: 0.2rem;
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .ball {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
