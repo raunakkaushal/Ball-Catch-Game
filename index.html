@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basket Catch Game</title>
+    <link rel="shortcut icon" href="img/icons8-ball-96.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Game start screen with GIF and Play button -->
+    <div class="game-screen active">
+        <div class="play-section">
+            <img src="img/bounce-ball.gif" alt="Bouncing ball">
+            <button id="play-btn">Play</button>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="container">
+            <!-- track -->
+            <div class="track track1">
+                <div class="basket basket-1">
+                    <img id="basket-img-1" src="img/basket.png" alt="Basket">
+                </div>
+                <div class="balls"></div>
+            </div>
+            <div class="track track2">
+                <div class="basket basket-2">
+                    <img id="basket-img-2" src="img/basket.png" alt="Basket">
+                </div>
+                <div class="balls"></div>
+            </div>
+            <div class="track track3">
+                <div class="basket basket-3">
+                    <img id="basket-img-3" src="img/basket.png" alt="Basket">
+                </div>
+                <div class="balls"></div>
+            </div>
+        </div>
+
+        <!-- lives -->
+        <div class="result-container">
+            <div class="lives">
+                Lives:
+                <div id="life1" class="life"></div>
+                <div id="life2" class="life"></div>
+            </div>
+            <div class="score">
+                <h3>Score: <span id="score">0</span></h3>
+            </div>
+        </div>
+
+        <!-- button section -->
+        <div class="button-section">
+            <button class="left-btn">Left</button>
+            <button class="right-btn">Right</button>
+        </div>
+
+        <div class="game-over" id="game-over-screen">
+            <h1>Game Over</h1>
+            <p>Your Score: <span id="final-score"></span></p>
+            <button id="restart-btn">Restart</button>
+        </div>
+    </div>
+
+    <!-- redirect box -->
+    <div class="redirect-box">
+        <button class="redirect">
+            <p class="tooltip">Click On Me I'll Redirect You to Homepage</p>
+            <a href="https://github.com/raunakkaushal" target="_blank"><img id="hacker-img" src="img/hacker.png" alt=""></a>
+        </button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
